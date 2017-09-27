@@ -1,0 +1,42 @@
+<%= form_for [@restaurant, @dish] do |f| %>
+  <% if dish.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(dish.errors.count, "error") %> prohibited this dish from being saved:</h2>
+
+      <ul>
+      <% dish.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cuisine %>
+    <%= f.collection_select :cuisine_id, @restaurant.cuisines.all, :id, :title, prompt: "Select Cusines" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

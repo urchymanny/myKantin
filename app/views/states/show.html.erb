@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @state.name %>
+</p>
+<ul>
+	<% @state.lgas.each do |lga| %>
+		<li><%= lga.name %></li>
+	<% end %>
+</ul>
+
+
+<%= link_to 'Edit', edit_state_path(@state) %> |
+<%= link_to 'Back', states_path %>

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lgas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>State</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lgas.each do |lga| %>
+      <tr>
+        <td><%= lga.name %></td>
+        <td><%= lga.state_id %></td>
+        <td><%= link_to 'Show', lga %></td>
+        <td><%= link_to 'Edit', edit_lga_path(lga) %></td>
+        <td><%= link_to 'Destroy', lga, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Lga', new_lga_path %>
+
+<h3>Import a CSV File</h3>
+  <%= form_tag import_lgas_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import CSV" %>
+  <% end %>

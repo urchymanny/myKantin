@@ -1,0 +1,66 @@
+<%= nested_form_for restaurant do |f| %>
+  <% if restaurant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
+
+      <ul>
+      <% restaurant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :state_id %>
+    <%= f.collection_select :state_id, State.all, :id, :name, prompt: "Select State" %> 
+  </div>
+
+  <div class="field">
+    <%= f.label :lga_id %>
+    <%= f.text_field :lga_id %>
+    <%= f.grouped_collection_select(:lga_id, State.all, :lgas, :name, :id, :name, prompt: "Select LGA") %>  
+  </div>
+
+  <div class="field">
+    <%= f.label :country %>
+    <%= f.text_field :country %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+
+  <hr>
+  <h2>Cuisines</h2>
+  
+  <%= f.fields_for :cuisines do |cuisine| %>
+    <div class="field" style="background: grey; width: 200px; padding: 10px;">
+      <%= cuisine.label :title %>
+      <%= cuisine.text_field :title, placeholder: 'Title' %>
+      <%= cuisine.label :description %>
+      <%= cuisine.text_area :description, placeholder: "Describe this Cusines" %>
+      <br>
+      <%= cuisine.link_to_remove "Remove this task" %>
+      </div>
+  <% end %>
+  
+  <p><%= f.link_to_add "Add a Cuisine", :cuisines %></p>
+
+  
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

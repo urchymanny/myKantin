@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mykantin - Quality delivery or take away food \\ coming soon!</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<%= csrf_meta_tags %>
+
+	<!-- Favicons-->
+	<link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon"/>
+	<link rel="apple-touch-icon" type="image/x-icon" href="/assets/apple-touch-icon-57x57-precomposed.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="/assets/apple-touch-icon-72x72-precomposed.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="/assets/apple-touch-icon-114x114-precomposed.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="/assets/apple-touch-icon-144x144-precomposed.png">
+
+	<%= stylesheet_link_tag 'coming' %>
+
+    <!--[if lt IE 9]>
+      <script src="http://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="http://oss.maxcdn.com/libs/respond./assets/1.3.0/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+	<%= yield %>
+
+
+	<%= javascript_include_tag 'coming' %>
+	<script type="text/javascript">
+		$('#slides').superslides({
+			play: 6000,
+			pagination:false,
+			animation_speed: 800,
+			animation: 'fade'
+		});
+
+	</script>
+	<%= javascript_include_tag 'comingto' %>
+
+</body>
+</html>

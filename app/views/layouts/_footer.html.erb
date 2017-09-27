@@ -1,0 +1,72 @@
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-3">
+                <h3>Secure payments with</h3>
+                <p>
+                    <img src="/assets/cards.png" alt="" class="img-responsive">
+                </p>
+            </div>
+            <div class="col-md-3 col-sm-3">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#0">Submit Restaurant</a></li>
+                    <li><a href="#0">About Us</a></li>
+                    <li><a href="#0">Blog</a></li>
+                    <li><a href="#0">FAQ</a></li>
+                    <li><a href="#0">Terms and conditions</a></li>
+                    <li><a href="#0">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 col-sm-3" id="newsletter">
+                <h3>Newsletter</h3>
+                <p>
+                    Join our newsletter list to be informed!
+                </p>
+                <% if cookies[:saved_newsletter] %>
+                    <div id="message-newsletter_2">
+                        You're already signed up for our newsletter
+                    </div>
+                <% else %>
+                    <%= form_for Newsletter.new, html: {id: "newsletter_2", name: "newsletter_2"} do |f| %>
+                        <div class="form-group">
+                            <%= f.text_field :email, type: "email", placeholder: "your email", class: "form-control" %>
+                        </div>
+                        <input type="submit" value="Subscribe" class="btn_1" id="submit-newsletter_2">
+                    <% end %>
+                <% end %>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                <h3>Settings</h3>
+                <div class="styled-select">
+                    <select class="form-control" name="lang" id="lang">
+                        <option value="English" selected>English</option>
+                    </select>
+                </div>
+                <div class="styled-select">
+                    <select class="form-control" name="currency" id="currency">
+                        <option value="NGN" selected>NGN</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <!-- End row -->
+        <div class="row">
+            <div class="col-md-12">
+                <div id="social_footer">
+                    <ul>
+                        <li><a href="https://www.facebook.com/mykantin/" target="_blank"><i class="icon-facebook"></i></a></li>
+                        <li><a href="https://twitter.com/mykantin" target="_blank"><i class="icon-twitter"></i></a></li>
+                        <li><a href="https://www.instagram.com/mykantin/" target="_blank"><i class="icon-instagram"></i></a></li>
+                    </ul>
+                    <p>
+                        © myKantin 2017 | Developed by <a href="http://madsuite.com" target="_blank">Madsuite</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- End row -->
+    </div>
+    <!-- End container -->
+</footer>
+<!-- End Footer =============================================== -->

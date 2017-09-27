@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Restaurant Searches</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Keywords</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @restaurant_searches.each do |restaurant_search| %>
+      <tr>
+        <td><%= restaurant_search.keywords %></td>
+        <td><%= link_to 'Show', restaurant_search %></td>
+        <td><%= link_to 'Edit', edit_restaurant_search_path(restaurant_search) %></td>
+        <td><%= link_to 'Destroy', restaurant_search, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Restaurant Search', new_restaurant_search_path %>
