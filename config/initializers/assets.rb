@@ -14,6 +14,6 @@ Rails.application.config.assets.precompile += %w( base.css )
 Rails.application.config.assets.precompile += %w( coming.js )
 Rails.application.config.assets.precompile += %w( comingto.js )
 Rails.application.config.assets.precompile += %w( coming.css )
-
+Rails.application.config.assets.precompile += %w( jquery.geocomplete.js )
 
 Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/

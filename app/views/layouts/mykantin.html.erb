@@ -20,10 +20,23 @@
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700,900,400italic,700italic,300,300italic' rel='stylesheet' type='text/css'>
     <!-- BASE CSS -->
     <%= stylesheet_link_tag 'base' %>
+    
     <!--[if lt IE 9]>
       <script src="js/html5shiv.min.js"></script>
       <script src="js/respond.min.js"></script>
-  <![endif]-->
+    <![endif]-->
+
+    <style type="text/css">
+        .pac-container, .ui-timepicker-wrapper {
+            z-index: 99999999999999 !important;
+        }
+        
+        .pac-container:after {
+            /* Disclaimer: not needed to show 'powered by Google' if also a Google Map is shown */
+            background-image: none !important;
+            height: 0px;
+        }
+    </style>
 </head>
 
 <body>
@@ -95,9 +108,9 @@
 <div class="search-overlay-menu">
     <span class="search-overlay-close"><i class="icon_close"></i></span>
     <%= form_for RestaurantSearch.new, html: {id: "searchform", role: "search"} do |f| %>
-        <%= f.text_field :keywords, placeholder: "enter your location...", type: "search" %>
-        <button type="submit"><i class="icon-search-6"></i>
-        </button>
+    <%= f.text_field :keywords, placeholder: "enter your location...", type: "search" %>
+    <button type="submit"><i class="icon-search-6"></i>
+    </button>
     <% end %>
 </div>
 <!-- End Search Menu -->
@@ -107,6 +120,14 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfIrEcAG_G2NslA4RGGkGjvq7pjHeW1cQ"></script>
 <!-- COMMON SCRIPTS -->
 <%= javascript_include_tag 'base' %>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuddIqJgHWGl-OiGKvnKn2oc9ak89055M&libraries=places&region=ng"></script>
+<%= javascript_include_tag 'jquery.geocomplete' %>
+<script>
+    $(document).ready(function() {
+        $('#restaurant_search_keywords').geocomplete();
+    });
+</script>
 
 
 </body>
