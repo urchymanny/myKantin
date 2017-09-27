@@ -14,4 +14,3 @@ State.create([{id: "1", name: "Abia"},
 	{id: "6", name: "Imo"}, 
 	{id: "7", name: "Anambra"}, 
 	{id: "8", name: "Abuja"}])
-Lga.create([{name: "Umuahia", state_id: 1}, {name: "Ohafia", state_id: 1}, {name: "Bende", state_id: 1}])
