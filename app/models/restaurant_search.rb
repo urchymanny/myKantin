@@ -5,7 +5,7 @@ class RestaurantSearch < ApplicationRecord
     friendly_id :keywords, use: :slugged
 
 	def search_restaurants
-		restaurants = Restaurant.near(keywords, 50)
+		restaurants = Restaurant.near(keywords.to_s, 50)
 		return restaurants	
 	end
 
