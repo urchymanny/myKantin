@@ -14,7 +14,7 @@ class DishesController < ApplicationController
 
   # GET /dishes/new
   def new
-    @restaurant = Restaurant.find(params[:restaurant_id])
+    @restaurant = Restaurant.find_by(slug: params[:restaurant_id])
     @dish = @restaurant.dishes.build
   end
 
