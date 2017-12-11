@@ -115,7 +115,7 @@
                     <div class="col-md-9 col-sm-9">
                         <div class="desc">
                             <div class="thumb_strip">
-                                <a href="detail_page.html">
+                                <a href="<%= restaurant_path(restaurant) %>">
                                     <%= image_tag restaurant.image_url, alt: restaurant.name %>
                                 </a>
                             </div>
@@ -138,7 +138,7 @@
                     <div class="col-md-3 col-sm-3">
                         <div class="go_to">
                             <div>
-                                <a href="detail_page.html" class="btn_1">View Menu</a>
+                                <a href="<%= restaurant_path(restaurant) %>" class="btn_1">View Menu</a>
                             </div>
                         </div>
                     </div>
