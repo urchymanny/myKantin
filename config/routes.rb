@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   
   get 'home/index'
   
-  root "coming_soon#index"
+  # root "coming_soon#index"
+  root "home#index"
+
   
   resources :restaurants do
   		resources :dishes

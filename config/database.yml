@@ -5,23 +5,30 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlite3
-  pool: 5
+  adapter: postgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
+  # username: postgres
+  # password: airvend
+  # host: localhost
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  database: db/ipaybtc_dev
+  host: localhost
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.sqlite3
+  database: db/ipaybtc_test
 
 production:
-  adapter: postgresql
-  database: mykantin-production
-  pool: 5
-  timeout: 5000
+  <<: *default
+  database: defaultdb
+  user: <%= ENV["PGDBUSER"] %>
+  password: <%= ENV["PGDBPASS"] %>
+  host: <%= ENV["PGHOST"] %>
+  port: 25060
+  sslmode: require
