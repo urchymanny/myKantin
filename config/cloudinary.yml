@@ -1,18 +1,1 @@
-development:
-  cloud_name: mykantin
-  api_key: '843561114436485'
-  api_secret: 3Mr0fnGGagLs3Pv8Y1Cf9fyYKCM
-  enhance_image_tag: true
-  static_image_support: false
-production:
-  cloud_name: mykantin
-  api_key: '843561114436485'
-  api_secret: 3Mr0fnGGagLs3Pv8Y1Cf9fyYKCM
-  enhance_image_tag: true
-  static_image_support: true
-test:
-  cloud_name: mykantin
-  api_key: '843561114436485'
-  api_secret: 3Mr0fnGGagLs3Pv8Y1Cf9fyYKCM
-  enhance_image_tag: true
-  static_image_support: false
+ADD KEY HERE
